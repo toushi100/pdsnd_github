@@ -104,17 +104,17 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    
     popular_start_station = df['Start Station'].mode()[0]
 
     print('Most Popular Start Station:', popular_start_station)
 
-    # TO DO: display most commonly used end station
+    
     popular_end_station = df['End Station'].mode()[0]
 
     print('Most Popular End Station:', popular_end_station)
 
-    # TO DO: display most frequent combination of start station and end station trip
+    
     df['Start End'] = df['Start Station'].map(str) + '&' + df['End Station']
     popular_start_end_station = df['Start End'].value_counts().idxmax()
     print('Most Popular combination of start station and end station trip:', popular_start_end_station)
@@ -145,17 +145,17 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    
     user_type = df['User Type'].value_counts()
     print('Counts of user types:', user_type)
     
-    # TO DO: Display counts of gender
+    
     if 'Gender' in df.columns:
         user_gender = df['Gender'].value_counts()
         print('counts of gender:', user_gender)
     else:
         print("No Gender data Found in this dataset")
-    # TO DO: Display earliest, most recent, and most common year of birth
+    
     if 'Birth Year' in df.columns:
         earliest = df['Birth Year'].min()
         most_recent = df['Birth Year'].max()
