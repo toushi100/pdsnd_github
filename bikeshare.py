@@ -6,7 +6,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 MONTHS = ['all','january', 'february', 'march', 'april', 'may', 'june']
-days = ['all','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+DAYS = ['All','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 def get_filters():
     
     
@@ -26,25 +26,25 @@ def get_filters():
     
     while True:
         try :   
-            month = str(input("Please enter a month or all ")).capitalize() 
-            if month in months:
+            month = str(input("Please enter a month or all ")).lower() 
+            if month in MONTHS:
                 break
             print("That is not a Valid month")
             print("Please enter one of these")
-            for i in months:
+            for i in MONTHS:
                 print(" - "+i)
         except :
             pass
 
     while True:
         try :   
-            day = str(input("Please enter a week day or all : "))
+            day = str(input("Please enter a week day or all : ")).capitalize()
             
-            if day in days:
+            if day in DAYS:
                 break
             print("That is not a Valid day")
             print("Please enter one of these")
-            for i in days:
+            for i in DAYS:
                 print(" - "+i)
         except :
             pass
@@ -64,7 +64,7 @@ def load_data(city, month, day):
     if month == 'all':
         pass
     else:
-        month = months.index(month)
+        month = MONTHS.index(month)
         df = df[df['month'] == month]
 
     
